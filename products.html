@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection | Sai Durga Arts</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfbfa; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #f1f0ea; }
+        ::-webkit-scrollbar-thumb { background: #d4d1c5; }
+    </style>
+</head>
+<body class="text-stone-900 antialiased selection:bg-stone-200">
+
+    <!-- Header -->
+    <header class="fixed top-4 left-4 right-4 z-50 px-6 bg-stone-900 backdrop-blur-md border border-stone-800 rounded-2xl">
+        <div class="max-w-7xl mx-auto h-20 flex items-center justify-between">
+            <div class="space-y-0.5">
+                <a href="index.html" class="font-semibold text-base uppercase tracking-widest text-white block">Sai Durga Arts</a>
+                <span class="text-[9px] uppercase tracking-widest mono text-stone-400 block">Handcrafted Clay Ganesh & Durga Idols</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-medium uppercase tracking-widest text-stone-400 mono">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="products.html" class="text-white">Collection</a>
+                <a href="about.html" class="hover:text-white transition">Studio</a>
+                <a href="contact.html" class="hover:text-white transition">Order</a>
+            </nav>
+            <a href="contact.html" class="hidden md:inline-block border border-stone-900 px-5 py-2 text-xs uppercase font-medium tracking-widest mono bg-stone-900 text-white hover:bg-transparent hover:text-white transition duration-300">Place Order</a>
+            <button class="md:hidden text-white" id="mobileToggle"><i data-lucide="menu" class="w-5 h-5"></i></button>
+        </div>
+        <div class="hidden md:hidden border-t border-stone-700 pb-4 pt-2 space-y-3" id="mobileMenu">
+            <a href="index.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Home</a>
+            <a href="products.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-900 py-1">Collection</a>
+            <a href="about.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Studio</a>
+            <a href="contact.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Order</a>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="max-w-7xl mx-auto px-6 pt-28 pb-16 border-b border-stone-200">
+        <span class="text-xs uppercase tracking-widest text-stone-400 mono block mb-2">Full Catalog</span>
+        <h1 class="text-3xl md:text-4xl font-light tracking-tight text-stone-900 uppercase">Our Collection</h1>
+        <p class="text-stone-500 text-sm font-light mt-3 max-w-lg">Every idol below is handcrafted from natural riverbank clay. Available in raw earth finish or hand-painted with botanical pigments.</p>
+    </section>
+
+    <!-- Filter -->
+    <section class="max-w-7xl mx-auto px-6 pt-10">
+        <div class="flex flex-wrap gap-3 mb-10" id="filterBar">
+            <button class="filter-btn active border border-stone-900 bg-stone-900 text-white px-4 py-2 text-[10px] uppercase tracking-widest font-semibold mono transition" data-filter="all">All Items</button>
+            <button class="filter-btn border border-stone-200 px-4 py-2 text-[10px] uppercase tracking-widest font-semibold mono text-stone-500 hover:border-stone-900 hover:text-white transition" data-filter="small">Small (3–9")</button>
+            <button class="filter-btn border border-stone-200 px-4 py-2 text-[10px] uppercase tracking-widest font-semibold mono text-stone-500 hover:border-stone-900 hover:text-white transition" data-filter="medium">Medium (12–18")</button>
+            <button class="filter-btn border border-stone-200 px-4 py-2 text-[10px] uppercase tracking-widest font-semibold mono text-stone-500 hover:border-stone-900 hover:text-white transition" data-filter="large">Large (24–36")</button>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="grid md:grid-cols-3 gap-8" id="productsGrid"></div>
+    </section>
+
+    <!-- Custom Order Banner -->
+    <section class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="border border-stone-200 p-8 md:p-12 bg-[#f7f6f0] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 rounded-3xl">
+            <div class="space-y-2">
+                <h3 class="text-lg font-medium uppercase tracking-tight">Need a Custom Size or Design?</h3>
+                <p class="text-xs text-stone-500 font-light max-w-md leading-relaxed">We make idols from 3 inches to 5 feet. Special designs for mandapams, societies, temples. Bulk orders welcome — advance booking recommended.</p>
+            </div>
+            <a href="contact.html" class="border border-stone-900 px-6 py-3 text-xs uppercase font-semibold tracking-widest mono bg-stone-900 text-white hover:bg-transparent hover:text-white transition shrink-0">Request Custom Order</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-500 py-12 border-t border-stone-800 text-[11px] font-light mono rounded-t-3xl">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase text-sm">Sai Durga Arts</p>
+                <p>Palavalasa, Sompeta Mandal</p>
+                <p>Srikakulam District, Andhra Pradesh, India</p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase">Contact</p>
+                <p>Phone: +91 98494 05815</p>
+                <p>Email: saidurgaarts@gmail.com</p>
+                <p>Hours: Mon–Sat, 8 AM – 8 PM</p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase">Links</p>
+                <a href="index.html" class="block hover:text-white transition">Home</a>
+                <a href="products.html" class="block hover:text-white transition">Collection</a>
+                <a href="about.html" class="block hover:text-white transition">About Studio</a>
+                <a href="contact.html" class="block hover:text-white transition">Place Order</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-stone-800 flex flex-col md:flex-row justify-between gap-2">
+            <p>© 2026 Sai Durga Arts. All rights reserved.</p>
+            <p>గణపతి బప్పా మోరియా 🙏</p>
+        </div>
+    </footer>
+
+    <script>
+    const products = [
+        { name: "Mini Ganesh Set", size: "3 inches each", cat: "small", code: "VN-MS", desc: "Set of 5 miniature clay idols. Perfect for gifting or home shelf display.", img: "img/1783349796478.png", tag: "Gift Set", finish: "Natural Earth" },
+        { name: "Simple Eco Vinayaka", size: "6 inches", cat: "small", code: "VN-01", desc: "Compact personal pooja idol. Pure clay, no paint, raw earth texture.", img: "img/1783349801869.png", tag: null, finish: "Natural Earth" },
+        { name: "Traditional Sitting Ganesh", size: "9 inches", cat: "small", code: "VN-02", desc: "Classic sitting posture with natural clay finish. Most popular home size.", img: "img/1783349806607.png", tag: "Popular", finish: "Natural Earth" },
+        { name: "Ganesh with Modak", size: "9 inches", cat: "small", code: "VN-03", desc: "Ganesh holding modak sweet. Detailed hand-sculpted features.", img: "img/1783349811144.png", tag: "New", finish: "Botanical Paint" },
+        { name: "Decorated Painted Ganesh", size: "12 inches", cat: "medium", code: "VN-04", desc: "Hand-painted with turmeric, kumkum and natural color washes.", img: "img/1783349816132.png", tag: null, finish: "Botanical Paint" },
+        { name: "Dancing Ganesh", size: "15 inches", cat: "medium", code: "VN-05", desc: "Beautiful dancing pose. Festive painted finish with floral details.", img: "img/1783349820966.png", tag: "Trending", finish: "Botanical Paint" },
+        { name: "Premium Sitting Ganesh", size: "18 inches", cat: "medium", code: "VN-06", desc: "Detailed ornamental idol with full botanical paint finish. Our best seller.", img: "img/1783349826199.png", tag: "Best Seller", finish: "Botanical Paint" },
+        { name: "Ganesh with Mouse", size: "12 inches", cat: "medium", code: "VN-07", desc: "Vinayaka with mushika vehicle. Natural clay with paint accents.", img: "img/1783349831565.png", tag: null, finish: "Botanical Paint" },
+        { name: "Floral Ganesh", size: "9 inches", cat: "small", code: "VN-10", desc: "Adorned with floral clay patterns. Elegant table-top piece.", img: "img/1783349836312.png", tag: null, finish: "Natural Earth" },
+        { name: "Seated Padmasana Ganesh", size: "12 inches", cat: "medium", code: "VN-11", desc: "Lotus-seated posture with intricate detailing. Peaceful expression.", img: "img/1783349841112.png", tag: null, finish: "Botanical Paint" },
+        { name: "Large Painted Vinayaka", size: "24 inches", cat: "large", code: "VN-08", desc: "For colony and society celebrations. Impressive presence, eco-friendly.", img: "img/1783349850320.png", tag: null, finish: "Full Decor" },
+        { name: "Grand Celebration Idol", size: "36 inches", cat: "large", code: "VN-09", desc: "3-foot majestic idol for grand pandals and mandapam celebrations.", img: "img/1783349854788.png", tag: "Premium", finish: "Full Decor" },
+        { name: "Eco Natural Ganesh", size: "6 inches", cat: "small", code: "VN-12", desc: "Raw earth finish, completely unpainted. Minimalist devotional piece.", img: "img/1783349861536.png", tag: null, finish: "Natural Earth" },
+        { name: "Ornate Ganesh", size: "15 inches", cat: "medium", code: "VN-13", desc: "Richly decorated with natural color details and ornament patterns.", img: "img/1783349865726.png", tag: "Trending", finish: "Botanical Paint" },
+        { name: "Standing Ganesh", size: "18 inches", cat: "medium", code: "VN-14", desc: "Rare standing posture design. Fully hand-painted festive look.", img: "img/1783349871079.png", tag: null, finish: "Botanical Paint" },
+        { name: "Classic Modak Ganesh", size: "12 inches", cat: "medium", code: "VN-15", desc: "Traditional design with modak in hand. Family favorite every year.", img: "img/1783349875744.png", tag: "Popular", finish: "Botanical Paint" },
+        { name: "Mandapam Special", size: "36 inches", cat: "large", code: "VN-16", desc: "Designed for community pandals. Grand presence with full decoration.", img: "img/1783349880456.png", tag: null, finish: "Full Decor" },
+        { name: "Society Ganesh", size: "24 inches", cat: "large", code: "VN-17", desc: "Perfect for apartment complexes and colony celebrations.", img: "img/1783349885775.png", tag: null, finish: "Full Decor" },
+        { name: "Painted Mini Ganesh", size: "3 inches", cat: "small", code: "VN-18", desc: "Tiny painted idol, ideal for car dashboard or office desk.", img: "img/1783349892756.png", tag: null, finish: "Botanical Paint" },
+        { name: "Festive Ganesh", size: "15 inches", cat: "medium", code: "VN-19", desc: "Vibrant festival colors with detailed crown and jewelry work.", img: "img/1783349900055.png", tag: "New", finish: "Botanical Paint" },
+        { name: "Raw Earth Ganesh", size: "9 inches", cat: "small", code: "VN-20", desc: "Completely unfinished natural soil texture. Pure eco devotion.", img: "img/1783349905414.png", tag: null, finish: "Natural Earth" },
+        { name: "Blessing Ganesh", size: "12 inches", cat: "medium", code: "VN-21", desc: "Ashirwad mudra posture. Peaceful painted finish.", img: "img/1783349910682.png", tag: null, finish: "Botanical Paint" },
+        { name: "Temple Style Ganesh", size: "18 inches", cat: "medium", code: "VN-22", desc: "Inspired by temple carvings. Deep detailing with natural dyes.", img: "img/1783349915636.png", tag: "Premium", finish: "Botanical Paint" },
+        { name: "Eco Ganesh Duo Set", size: "6 inches each", cat: "small", code: "VN-23", desc: "Pair of 2 small idols — perfect for gifting couples or families.", img: "img/1783349921282.png", tag: "Gift Set", finish: "Natural Earth" },
+        { name: "Grand Temple Ganesh", size: "48 inches", cat: "large", code: "VN-24", desc: "4-foot grand idol for temple installations and large pandals.", img: "img/1783349946424.png", tag: "Premium", finish: "Full Decor" },
+        { name: "Colorful Celebration", size: "24 inches", cat: "large", code: "VN-25", desc: "Brightly painted with natural pigments. Eye-catching festival centerpiece.", img: "img/1783349953415.png", tag: "Trending", finish: "Full Decor" },
+        { name: "Durga Devi Clay Idol", size: "18 inches", cat: "medium", code: "DD-01", desc: "Handcrafted Durga Devi in natural clay. For Navratri celebrations.", img: "img/1783349959415.png", tag: "New", finish: "Botanical Paint" },
+        { name: "Durga Devi Large", size: "36 inches", cat: "large", code: "DD-02", desc: "Grand Durga Devi idol for community Navratri mandapam.", img: "img/1783349964305.png", tag: "Premium", finish: "Full Decor" },
+    ];
+
+    function renderProducts(filter = 'all') {
+        const grid = document.getElementById('productsGrid');
+        const list = filter === 'all' ? products : products.filter(p => p.cat === filter);
+        grid.innerHTML = list.map(p => {
+            const likes = getLikes(p.code);
+            const rating = getRating(p.code);
+            return `
+            <div class="border border-stone-200 bg-white group hover:border-stone-400 transition duration-300">
+                <div class="aspect-square bg-stone-100 overflow-hidden border-b border-stone-200 relative">
+                    <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute bottom-3 left-3 bg-stone-900 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">${p.code}</div>
+                    ${p.tag ? `<div class="absolute top-3 right-3 bg-emerald-800 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">${p.tag}</div>` : ''}
+                </div>
+                <div class="p-6 space-y-3">
+                    <div class="flex justify-between items-baseline">
+                        <h4 class="font-medium text-sm text-stone-900 uppercase tracking-tight">${p.name}</h4>
+                    </div>
+                    <p class="text-xs text-stone-500 leading-relaxed font-light">${p.desc}</p>
+                    <!-- Star Rating -->
+                    <div class="flex items-center gap-1 pt-1" data-code="${p.code}">
+                        ${[1,2,3,4,5].map(star => `
+                            <button onclick="rateStar('${p.code}', ${star})" class="star-btn text-lg transition hover:scale-125 ${star <= rating ? 'text-yellow-500' : 'text-stone-300'}">★</button>
+                        `).join('')}
+                        <span class="text-[10px] text-stone-400 ml-2 mono">${rating > 0 ? rating + '/5' : ''}</span>
+                    </div>
+                    <!-- Like Button -->
+                    <div class="flex items-center justify-between pt-2 border-t border-stone-100">
+                        <div class="text-[10px] text-stone-400 uppercase tracking-widest mono">Size: ${p.size} / ${p.finish}</div>
+                        <button onclick="toggleLike('${p.code}')" class="flex items-center gap-1.5 px-2 py-1 rounded-full border ${likes.liked ? 'border-red-200 bg-red-50' : 'border-stone-200'} transition hover:scale-105">
+                            <span class="${likes.liked ? 'text-red-500' : 'text-stone-400'} text-sm">♥</span>
+                            <span class="text-[10px] mono ${likes.liked ? 'text-red-500' : 'text-stone-400'}">${likes.count}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `}).join('');
+    }
+
+    // Like system (localStorage)
+    function getLikes(code) {
+        const data = JSON.parse(localStorage.getItem('sda_likes') || '{}');
+        return { count: data[code]?.count || 0, liked: data[code]?.liked || false };
+    }
+
+    function toggleLike(code) {
+        const data = JSON.parse(localStorage.getItem('sda_likes') || '{}');
+        if (!data[code]) data[code] = { count: 0, liked: false };
+        if (data[code].liked) {
+            data[code].count--;
+            data[code].liked = false;
+        } else {
+            data[code].count++;
+            data[code].liked = true;
+        }
+        localStorage.setItem('sda_likes', JSON.stringify(data));
+        renderProducts(document.querySelector('.filter-btn.active')?.dataset.filter || 'all');
+    }
+
+    // Star rating system (localStorage)
+    function getRating(code) {
+        const data = JSON.parse(localStorage.getItem('sda_ratings') || '{}');
+        return data[code] || 0;
+    }
+
+    function rateStar(code, stars) {
+        const data = JSON.parse(localStorage.getItem('sda_ratings') || '{}');
+        data[code] = stars;
+        localStorage.setItem('sda_ratings', JSON.stringify(data));
+        renderProducts(document.querySelector('.filter-btn.active')?.dataset.filter || 'all');
+    }
+
+    // Filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active', 'bg-stone-900', 'text-white', 'border-stone-900');
+                b.classList.add('border-stone-200', 'text-stone-500');
+            });
+            btn.classList.add('active', 'bg-stone-900', 'text-white', 'border-stone-900');
+            btn.classList.remove('border-stone-200', 'text-stone-500');
+            renderProducts(btn.dataset.filter);
+        });
+    });
+
+    // Mobile menu
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Auto-hide navbar on scroll down, show on scroll up
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > lastScroll && currentScroll > 80) {
+            header.style.transform = 'translateY(-150%)';
+            header.style.transition = 'transform 0.3s ease';
+        } else {
+            header.style.transform = 'translateY(0)';
+            header.style.transition = 'transform 0.3s ease';
+        }
+        lastScroll = currentScroll;
+    });
+
+    renderProducts();
+    lucide.createIcons();
+    </script>
+</body>
+</html>

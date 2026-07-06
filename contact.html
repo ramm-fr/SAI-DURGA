@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order | Sai Durga Arts</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfbfa; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #f1f0ea; }
+        ::-webkit-scrollbar-thumb { background: #d4d1c5; }
+    </style>
+</head>
+<body class="text-stone-900 antialiased selection:bg-stone-200">
+
+    <!-- Header -->
+    <header class="fixed top-4 left-4 right-4 z-50 px-6 bg-stone-900 backdrop-blur-md border border-stone-800 rounded-2xl">
+        <div class="max-w-7xl mx-auto h-20 flex items-center justify-between">
+            <div class="space-y-0.5">
+                <a href="index.html" class="font-semibold text-base uppercase tracking-widest text-white block">Sai Durga Arts</a>
+                <span class="text-[9px] uppercase tracking-widest mono text-stone-400 block">Handcrafted Clay Ganesh & Durga Idols</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-medium uppercase tracking-widest text-stone-400 mono">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="products.html" class="hover:text-white transition">Collection</a>
+                <a href="about.html" class="hover:text-white transition">Studio</a>
+                <a href="contact.html" class="text-white">Order</a>
+            </nav>
+            <a href="contact.html" class="hidden md:inline-block border border-stone-900 px-5 py-2 text-xs uppercase font-medium tracking-widest mono bg-stone-900 text-white hover:bg-transparent hover:text-white transition duration-300">Place Order</a>
+            <button class="md:hidden text-white" id="mobileToggle"><i data-lucide="menu" class="w-5 h-5"></i></button>
+        </div>
+        <div class="hidden md:hidden border-t border-stone-700 pb-4 pt-2 space-y-3" id="mobileMenu">
+            <a href="index.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Home</a>
+            <a href="products.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Collection</a>
+            <a href="about.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Studio</a>
+            <a href="contact.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-900 py-1">Order</a>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="max-w-7xl mx-auto px-6 pt-28 pb-16 border-b border-stone-200">
+        <span class="text-xs uppercase tracking-widest text-stone-400 mono block mb-2">Contact & Orders</span>
+        <h1 class="text-3xl md:text-4xl font-light tracking-tight text-stone-900 uppercase">Place Your Order</h1>
+        <p class="text-stone-500 text-sm font-light mt-3 max-w-lg">Fill in your details and requirements below. We'll confirm via WhatsApp within a few hours. Pay only after seeing photos of your finished idol.</p>
+    </section>
+
+    <!-- Contact Info + Form -->
+    <section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-12 gap-12 items-start">
+
+        <!-- Contact Details -->
+        <div class="md:col-span-4 space-y-8">
+            <div class="space-y-6">
+                <div class="border-t border-stone-200 pt-4 space-y-1">
+                    <div class="flex items-center gap-2 text-xs uppercase font-semibold tracking-widest text-stone-900 mono">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Address
+                    </div>
+                    <p class="text-xs text-stone-500 font-light leading-relaxed">Palavalasa Village<br>Sompeta Mandal<br>Srikakulam District<br>Andhra Pradesh, India<br>PIN: 532284</p>
+                </div>
+                <div class="border-t border-stone-200 pt-4 space-y-1">
+                    <div class="flex items-center gap-2 text-xs uppercase font-semibold tracking-widest text-stone-900 mono">
+                        <i data-lucide="phone" class="w-3.5 h-3.5"></i> Phone
+                    </div>
+                    <p class="text-xs text-stone-500 font-light">+91 98494 05815</p>
+                    <p class="text-xs text-stone-500 font-light">+91 900064905</p>
+                </div>
+                <div class="border-t border-stone-200 pt-4 space-y-1">
+                    <div class="flex items-center gap-2 text-xs uppercase font-semibold tracking-widest text-stone-900 mono">
+                        <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+                    </div>
+                    <p class="text-xs text-stone-500 font-light">saidurgaarts@gmail.com</p>
+                </div>
+                <div class="border-t border-stone-200 pt-4 space-y-1">
+                    <div class="flex items-center gap-2 text-xs uppercase font-semibold tracking-widest text-stone-900 mono">
+                        <i data-lucide="clock" class="w-3.5 h-3.5"></i> Hours
+                    </div>
+                    <p class="text-xs text-stone-500 font-light">Monday – Saturday: 8 AM – 8 PM<br>Sunday: By appointment</p>
+                </div>
+                <div class="border-t border-stone-200 pt-4 space-y-1">
+                    <div class="flex items-center gap-2 text-xs uppercase font-semibold tracking-widest text-stone-900 mono">
+                        <i data-lucide="message-square" class="w-3.5 h-3.5"></i> WhatsApp
+                    </div>
+                    <a href="https://wa.me/919849405815" target="_blank" class="text-xs text-stone-600 font-medium underline underline-offset-2 hover:text-white transition">Open WhatsApp Chat →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Form -->
+        <div class="md:col-span-8">
+            <div class="border border-stone-200 bg-white p-8 md:p-10 space-y-8">
+                <div class="space-y-1">
+                    <h3 class="text-lg font-medium uppercase tracking-tight">Order Details</h3>
+                    <p class="text-xs text-stone-400 font-light">All fields marked * are required. We confirm every order via WhatsApp before processing.</p>
+                </div>
+
+                <form id="orderForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-semibold text-stone-500 uppercase tracking-widest mono">Full Name *</label>
+                            <input type="text" required placeholder="Your name" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 text-xs tracking-wide text-stone-800 focus:outline-none focus:border-stone-900 transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-semibold text-stone-500 uppercase tracking-widest mono">WhatsApp Number *</label>
+                            <input type="tel" required placeholder="+91 XXXXX XXXXX" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 text-xs tracking-wide text-stone-800 focus:outline-none focus:border-stone-900 transition">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-semibold text-stone-500 uppercase tracking-widest mono">Idol Type *</label>
+                            <select required class="w-full bg-stone-50 border border-stone-200 px-4 py-3 text-xs uppercase tracking-wider mono text-stone-800 focus:outline-none focus:border-stone-900 transition">
+                                <option value="">Select type...</option>
+                                <option>Ganesh — Natural Clay (Unpainted)</option>
+                                <option>Ganesh — Painted (Botanical Colors)</option>
+                                <option>Durga Devi — Natural Clay</option>
+                                <option>Durga Devi — Painted</option>
+                                <option>Custom Design</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-semibold text-stone-500 uppercase tracking-widest mono">Size *</label>
+                            <select required class="w-full bg-stone-50 border border-stone-200 px-4 py-3 text-xs uppercase tracking-wider mono text-stone-800 focus:outline-none focus:border-stone-900 transition">
+                                <option value="">Select size...</option>
+                                <option>Small: 3–6 inches</option>
+                                <option>Medium: 9–12 inches</option>
+                                <option>Large: 15–18 inches</option>
+                                <option>Extra Large: 24–36 inches</option>
+                                <option>Grand: 3–5 feet</option>
+                                <option>Custom Size</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-semibold text-stone-500 uppercase tracking-widest mono">Quantity</label>
+                            <input type="number" min="1" placeholder="1" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 text-xs tracking-wide text-stone-800 focus:outline-none focus:border-stone-900 transition">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-[10px] font-semibold text-stone-500 uppercase tracking-widest mono">Delivery Date Needed</label>
+                            <input type="date" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 text-xs tracking-wide text-stone-800 focus:outline-none focus:border-stone-900 transition">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-semibold text-stone-500 uppercase tracking-widest mono">Delivery Address *</label>
+                        <textarea rows="3" required placeholder="Full address with city, district, state, and pincode" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 text-xs tracking-wide text-stone-800 focus:outline-none focus:border-stone-900 transition"></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-semibold text-stone-500 uppercase tracking-widest mono">Additional Notes</label>
+                        <textarea rows="3" placeholder="Special design requests, color preferences, or any other details..." class="w-full bg-stone-50 border border-stone-200 px-4 py-3 text-xs tracking-wide text-stone-800 focus:outline-none focus:border-stone-900 transition"></textarea>
+                    </div>
+
+                    <!-- Payment Note -->
+                    <div class="p-4 bg-[#f7f6f0] border border-stone-200 flex gap-3 text-stone-600 text-xs font-light leading-relaxed">
+                        <i data-lucide="info" class="w-4 h-4 text-stone-700 shrink-0 mt-0.5"></i>
+                        <div>
+                            <strong class="font-medium text-stone-900">Payment Policy:</strong> No advance payment needed. We send photos of your finished idol via WhatsApp. You pay only after approval. Cash on delivery also available for local orders.
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-stone-900 text-white text-center py-4 text-xs font-semibold tracking-widest uppercase hover:bg-stone-800 transition mono">Submit Order Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps -->
+    <section class="max-w-7xl mx-auto px-6 pb-20">
+        <div class="border border-stone-200 bg-[#f7f6f0] p-10 text-center space-y-4 rounded-3xl">
+            <i data-lucide="map" class="w-8 h-8 text-stone-400 mx-auto"></i>
+            <h3 class="text-sm font-semibold uppercase tracking-wider">Find Our Workshop</h3>
+            <p class="text-xs text-stone-500 font-light">Palavalasa, Sompeta, Srikakulam, Andhra Pradesh</p>
+            <a href="https://maps.google.com/?q=18.8885413320485,84.54078059479201" target="_blank" class="inline-flex items-center gap-2 border border-stone-900 px-5 py-2.5 text-[10px] uppercase font-semibold tracking-widest mono hover:bg-stone-900 hover:text-white transition">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open in Google Maps
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-500 py-12 border-t border-stone-800 text-[11px] font-light mono rounded-t-3xl">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase text-sm">Sai Durga Arts</p>
+                <p>Palavalasa, Sompeta Mandal</p>
+                <p>Srikakulam District, Andhra Pradesh, India</p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase">Contact</p>
+                <p>Phone: +91 98494 05815</p>
+                <p>Email: saidurgaarts@gmail.com</p>
+                <p>Hours: Mon–Sat, 8 AM – 8 PM</p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase">Links</p>
+                <a href="index.html" class="block hover:text-white transition">Home</a>
+                <a href="products.html" class="block hover:text-white transition">Collection</a>
+                <a href="about.html" class="block hover:text-white transition">About Studio</a>
+                <a href="contact.html" class="block hover:text-white transition">Place Order</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-stone-800 flex flex-col md:flex-row justify-between gap-2">
+            <p>© 2026 Sai Durga Arts. All rights reserved.</p>
+            <p>గణపతి బప్పా మోరియా 🙏</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.getElementById('mobileToggle').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Auto-hide navbar on scroll down, show on scroll up
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                header.style.transform = 'translateY(-150%)';
+                header.style.transition = 'transform 0.3s ease';
+            } else {
+                header.style.transform = 'translateY(0)';
+                header.style.transition = 'transform 0.3s ease';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Form submit — send details to WhatsApp
+        document.getElementById('orderForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const inputs = form.querySelectorAll('input, select, textarea');
+            
+            const name = inputs[0].value || '-';
+            const phone = inputs[1].value || '-';
+            const idolType = inputs[2].value || '-';
+            const size = inputs[3].value || '-';
+            const quantity = inputs[4].value || '1';
+            const deliveryDate = inputs[5].value || '-';
+            const address = inputs[6].value || '-';
+            const notes = inputs[7].value || '-';
+
+            const message = `🙏 *NEW ORDER — SAI DURGA ARTS*%0A%0A` +
+                `👤 *Name:* ${name}%0A` +
+                `📞 *Phone:* ${phone}%0A` +
+                `🪔 *Idol Type:* ${idolType}%0A` +
+                `📏 *Size:* ${size}%0A` +
+                `🔢 *Quantity:* ${quantity}%0A` +
+                `📅 *Delivery Date:* ${deliveryDate}%0A` +
+                `📍 *Address:* ${address}%0A` +
+                `📝 *Notes:* ${notes}`;
+
+            const whatsappURL = `https://wa.me/917386924902?text=${message}`;
+            
+            window.open(whatsappURL, '_blank');
+            alert('Order sent to WhatsApp! 🙏\nధన్యవాదాలు!');
+            form.reset();
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>

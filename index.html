@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Durga Arts — Handcrafted Clay Idol Studio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfbfa; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #f1f0ea; }
+        ::-webkit-scrollbar-thumb { background: #d4d1c5; }
+
+        /* Scroll animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .fade-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* Hero entrance animations */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroFadeRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .hero-text-anim > * {
+            animation: heroFadeUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        .hero-text-anim > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-text-anim > *:nth-child(2) { animation-delay: 0.25s; }
+        .hero-text-anim > *:nth-child(3) { animation-delay: 0.4s; }
+        .hero-text-anim > *:nth-child(4) { animation-delay: 0.55s; }
+        .hero-text-anim > *:nth-child(5) { animation-delay: 0.7s; }
+        .hero-illus-anim {
+            animation: heroFadeRight 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Hover lift for cards */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body class="text-stone-900 antialiased selection:bg-stone-200">
+
+    <!-- Header -->
+    <header class="fixed top-4 left-4 right-4 z-50 px-6 bg-stone-900 backdrop-blur-md border border-stone-800 transition-transform duration-300 rounded-2xl" id="mainHeader">
+        <div class="max-w-7xl mx-auto h-16 flex items-center justify-between">
+            <div class="space-y-0.5">
+                <a href="index.html" class="font-semibold text-base uppercase tracking-widest text-white block">Sai Durga Arts</a>
+                <span class="text-[9px] uppercase tracking-widest mono text-stone-400 block">Handcrafted Clay Ganesh & Durga Idols</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-medium uppercase tracking-widest text-stone-400 mono">
+                <a href="index.html" class="text-white">Home</a>
+                <a href="products.html" class="hover:text-white transition">Collection</a>
+                <a href="about.html" class="hover:text-white transition">Studio</a>
+                <a href="contact.html" class="hover:text-white transition">Order</a>
+            </nav>
+            <a href="contact.html" class="hidden md:inline-block border border-white/30 px-5 py-2 text-xs uppercase font-medium tracking-widest mono text-white hover:bg-white hover:text-stone-900 transition duration-300 rounded-lg">Place Order</a>
+            <button class="md:hidden text-white" id="mobileToggle"><i data-lucide="menu" class="w-5 h-5"></i></button>
+        </div>
+        <!-- Mobile Nav -->
+        <div class="hidden md:hidden border-t border-stone-700 pb-4 pt-2 space-y-3" id="mobileMenu">
+            <a href="index.html" class="block text-xs uppercase tracking-widest mono font-medium text-white py-1">Home</a>
+            <a href="products.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Collection</a>
+            <a href="about.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Studio</a>
+            <a href="contact.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Order</a>
+        </div>
+    </header>
+
+    <!-- Hero Section — Text Left + Illustration Right -->
+    <section class="h-screen flex items-center bg-[#fcfbfa] pt-20">
+        <div class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left: Text -->
+            <div class="space-y-7 pt-20 md:pt-0 hero-text-anim">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-stone-900 leading-[1.1]">
+                    Handcrafted<br>Clay Ganesh<br>Idols
+                </h1>
+
+                <p class="text-stone-500 text-sm md:text-base font-light leading-relaxed max-w-md">
+                    Pure riverbank soil. No plaster, no chemicals. Sculpted by family artisans in Palavalasa, Sompeta. Dissolves completely in water after pooja.
+                </p>
+
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="products.html" class="bg-stone-900 text-white px-7 py-3.5 text-xs uppercase font-semibold tracking-widest mono hover:bg-stone-800 transition">View Collection</a>
+                    <a href="https://wa.me/919849405815" target="_blank" class="border border-stone-300 text-stone-700 px-7 py-3.5 text-xs uppercase font-semibold tracking-widest mono hover:border-stone-900 transition flex items-center gap-2">
+                        <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mini trust points -->
+                <div class="flex flex-wrap gap-6 pt-6 border-t border-stone-200">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-stone-500"></i>
+                        <span class="text-[11px] text-stone-500 mono uppercase tracking-wider">Pure Clay</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="droplets" class="w-3.5 h-3.5 text-stone-500"></i>
+                        <span class="text-[11px] text-stone-500 mono uppercase tracking-wider">Water Soluble</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="hand-heart" class="w-3.5 h-3.5 text-stone-500"></i>
+                        <span class="text-[11px] text-stone-500 mono uppercase tracking-wider">Handmade</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Illustration -->
+            <div class="hidden md:flex items-center justify-center hero-illus-anim">
+                <img src="img/vinayaka.svg" alt="Vinayaka Illustration" class="w-full max-w-md h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Preview -->
+    <section class="max-w-7xl mx-auto px-6 py-20 border-b border-stone-200">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4 fade-up">
+            <div>
+                <span class="text-xs uppercase tracking-widest text-stone-400 mono block mb-1">Featured</span>
+                <h2 class="text-2xl font-normal tracking-tight text-stone-900 uppercase">Popular This Season</h2>
+            </div>
+            <a href="products.html" class="text-xs uppercase tracking-widest font-semibold border-b border-stone-900 pb-0.5 hover:text-stone-500 transition mono">View Full Collection →</a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div class="border border-stone-200 bg-white group hover:border-stone-400 transition duration-300 fade-up delay-1 hover-lift">
+                <div class="aspect-square bg-stone-100 overflow-hidden border-b border-stone-200 relative">
+                    <img src="img/1783349826199.png" alt="Natural Clay Vinayaka" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute bottom-3 left-3 bg-stone-900 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-01</div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <div class="flex justify-between items-baseline">
+                        <h4 class="font-medium text-sm text-stone-900 uppercase tracking-tight">Natural Clay Vinayaka</h4>
+                    </div>
+                    <p class="text-xs text-stone-500 leading-relaxed font-light">Pure unpainted riverbank soil form. Classic sitting posture, 9 inches.</p>
+                    <div class="text-[10px] text-stone-400 uppercase tracking-widest mono pt-2 border-t border-stone-100">Size: 9 inches / Natural Finish</div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="border border-stone-200 bg-white group hover:border-stone-400 transition duration-300 fade-up delay-2 hover-lift">
+                <div class="aspect-square bg-stone-100 overflow-hidden border-b border-stone-200 relative">
+                    <img src="img/1783349841112.png" alt="Premium Painted Ganesh" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute bottom-3 left-3 bg-stone-900 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-04</div>
+                    <div class="absolute top-3 right-3 bg-emerald-800 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">Best Seller</div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <div class="flex justify-between items-baseline">
+                        <h4 class="font-medium text-sm text-stone-900 uppercase tracking-tight">Premium Painted Ganesh</h4>
+                    </div>
+                    <p class="text-xs text-stone-500 leading-relaxed font-light">Detailed hand-painted with turmeric and natural color washes. 18 inches.</p>
+                    <div class="text-[10px] text-stone-400 uppercase tracking-widest mono pt-2 border-t border-stone-100">Size: 18 inches / Botanical Paint</div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="border border-stone-200 bg-white group hover:border-stone-400 transition duration-300 fade-up delay-3 hover-lift">
+                <div class="aspect-square bg-stone-100 overflow-hidden border-b border-stone-200 relative">
+                    <img src="img/1783349854788.png" alt="Grand Celebration Idol" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute bottom-3 left-3 bg-stone-900 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-06</div>
+                    <div class="absolute top-3 right-3 bg-stone-700 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">Premium</div>
+                </div>
+                <div class="p-6 space-y-3">
+                    <div class="flex justify-between items-baseline">
+                        <h4 class="font-medium text-sm text-stone-900 uppercase tracking-tight">Grand Celebration Idol</h4>
+                    </div>
+                    <p class="text-xs text-stone-500 leading-relaxed font-light">Large 3-foot idol for society mandapams. Fully painted, detailed ornaments.</p>
+                    <div class="text-[10px] text-stone-400 uppercase tracking-widest mono pt-2 border-t border-stone-100">Size: 36 inches / Full Decor</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="max-w-7xl mx-auto px-6 py-20 border-b border-stone-200">
+        <div class="mb-12 fade-up">
+            <span class="text-xs uppercase tracking-widest text-stone-400 mono block mb-1">How It Works</span>
+            <h2 class="text-2xl font-normal tracking-tight text-stone-900 uppercase">From Earth to Your Home</h2>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="border-t border-stone-300 pt-4 space-y-2 fade-up delay-1">
+                <span class="text-xs uppercase font-semibold tracking-widest text-stone-400 mono block">01</span>
+                <h5 class="text-sm font-semibold uppercase tracking-wider text-stone-900">Choose Your Idol</h5>
+                <p class="text-xs text-stone-500 font-light leading-relaxed">Pick from our collection or request a custom size. Call or WhatsApp to confirm.</p>
+            </div>
+            <div class="border-t border-stone-300 pt-4 space-y-2 fade-up delay-2">
+                <span class="text-xs uppercase font-semibold tracking-widest text-stone-400 mono block">02</span>
+                <h5 class="text-sm font-semibold uppercase tracking-wider text-stone-900">We Sculpt It</h5>
+                <p class="text-xs text-stone-500 font-light leading-relaxed">Hand-shaped from natural clay, sun-dried for days, painted with botanical colors if requested.</p>
+            </div>
+            <div class="border-t border-stone-300 pt-4 space-y-2 fade-up delay-3">
+                <span class="text-xs uppercase font-semibold tracking-widest text-stone-400 mono block">03</span>
+                <h5 class="text-sm font-semibold uppercase tracking-wider text-stone-900">Clean Immersion</h5>
+                <p class="text-xs text-stone-500 font-light leading-relaxed">After your pooja, immerse in any water body. Dissolves fully — no pollution, no residue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="bg-stone-900 text-white p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 scale-in rounded-3xl">
+            <div class="space-y-3">
+                <h2 class="text-2xl font-normal uppercase tracking-tight">Ready to Book Your Idol?</h2>
+                <p class="text-stone-400 text-sm font-light max-w-md">Ganesh Chaturthi season starts soon. Book early for custom sizes. Pay only after seeing photos of your finished idol.</p>
+            </div>
+            <div class="flex gap-4 flex-wrap">
+                <a href="contact.html" class="bg-white text-stone-900 px-6 py-3 text-xs uppercase font-semibold tracking-widest mono hover:bg-stone-100 transition">Place Order</a>
+                <a href="https://wa.me/919849405815" target="_blank" class="border border-stone-600 px-6 py-3 text-xs uppercase font-semibold tracking-widest mono text-stone-300 hover:border-white hover:text-white transition">WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-500 py-12 border-t border-stone-800 text-[11px] font-light mono rounded-t-3xl">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase text-sm">Sai Durga Arts</p>
+                <p>Palavalasa, Sompeta Mandal</p>
+                <p>Srikakulam District, Andhra Pradesh, India</p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase">Contact</p>
+                <p>Phone: +91 98494 05815</p>
+                <p>Email: saidurgaarts@gmail.com</p>
+                <p>Hours: Mon–Sat, 8 AM – 8 PM</p>
+            </div>
+            <div class="space-y-2">
+                <p class="text-stone-300 font-semibold tracking-wider uppercase">Links</p>
+                <a href="index.html" class="block hover:text-white transition">Home</a>
+                <a href="products.html" class="block hover:text-white transition">Collection</a>
+                <a href="about.html" class="block hover:text-white transition">About Studio</a>
+                <a href="contact.html" class="block hover:text-white transition">Place Order</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-stone-800 flex flex-col md:flex-row justify-between gap-2">
+            <p>© 2026 Sai Durga Arts. All rights reserved.</p>
+            <p>గణపతి బప్పా మోరియా 🙏</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        document.getElementById('mobileToggle').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Auto-hide navbar on scroll down, show on scroll up
+        let lastScroll = 0;
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Scroll animations with Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
