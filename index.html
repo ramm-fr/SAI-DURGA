@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Durga Arts — Handcrafted Clay Idol Studio</title>
+    <title>సాయి దుర్గ ఆర్ట్స్ — మట్టి వినాయక విగ్రహాలు</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fcfbfa; }
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Yatra+One&family=Marcellus&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+        body { 
+            font-family: 'Marcellus', serif; 
+            background-color: #4A0E0E;
+            color: #FFFDF9;
+            background-image: radial-gradient(rgba(255, 143, 0, 0.15) 2px, transparent 0), radial-gradient(rgba(255, 215, 0, 0.1) 2px, transparent 0);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+        }
         .mono { font-family: 'JetBrains Mono', monospace; }
         ::-webkit-scrollbar { width: 4px; height: 4px; }
-        ::-webkit-scrollbar-track { background: #f1f0ea; }
-        ::-webkit-scrollbar-thumb { background: #d4d1c5; }
+        ::-webkit-scrollbar-track { background: #360909; }
+        ::-webkit-scrollbar-thumb { background: #FF8F00; }
 
         /* Scroll animations */
         .fade-up {
@@ -95,202 +102,277 @@
 <body class="text-stone-900 antialiased selection:bg-stone-200">
 
     <!-- Header -->
-    <header class="fixed top-4 left-4 right-4 z-50 px-6 bg-stone-900 backdrop-blur-md border border-stone-800 transition-transform duration-300 rounded-2xl" id="mainHeader">
+    <header class="fixed top-4 left-4 right-4 z-50 px-6 bg-[#360909] backdrop-blur-md border-2 border-[#FF8F00] transition-transform duration-300 rounded-2xl shadow-[0_5px_25px_rgba(0,0,0,0.5)]" id="mainHeader">
         <div class="max-w-7xl mx-auto h-16 flex items-center justify-between">
             <div class="space-y-0.5">
-                <a href="index.html" class="font-semibold text-base uppercase tracking-widest text-white block">Sai Durga Arts</a>
-                <span class="text-[9px] uppercase tracking-widest mono text-stone-400 block">Handcrafted Clay Ganesh & Durga Idols</span>
+                <a href="index.html" class="font-semibold text-base uppercase tracking-widest text-[#FFD700] block" style="font-family:'Yatra One',serif;">Sai Durga Arts</a>
+                <span data-t="subtitle" class="text-[9px] uppercase tracking-widest mono text-[#FFC107] block">Handcrafted Clay Ganesh & Durga Idols</span>
             </div>
-            <nav class="hidden md:flex items-center space-x-10 text-xs font-medium uppercase tracking-widest text-stone-400 mono">
-                <a href="index.html" class="text-white">Home</a>
-                <a href="products.html" class="hover:text-white transition">Collection</a>
-                <a href="about.html" class="hover:text-white transition">Studio</a>
-                <a href="contact.html" class="hover:text-white transition">Order</a>
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-medium uppercase tracking-widest text-[#FFD2C4] mono">
+                <a href="index.html" class="text-[#FFD700]" data-t="navHome">Home</a>
+                <a href="products.html" class="hover:text-[#FFD700] transition" data-t="navCollection">Collection</a>
+                <a href="about.html" class="hover:text-[#FFD700] transition" data-t="navStudio">Studio</a>
+                <a href="contact.html" class="hover:text-[#FFD700] transition" data-t="navOrder">Order</a>
             </nav>
-            <a href="contact.html" class="hidden md:inline-block border border-white/30 px-5 py-2 text-xs uppercase font-medium tracking-widest mono text-white hover:bg-white hover:text-stone-900 transition duration-300 rounded-lg">Place Order</a>
-            <button class="md:hidden text-white" id="mobileToggle"><i data-lucide="menu" class="w-5 h-5"></i></button>
+            <div class="hidden md:flex items-center gap-3">
+                <button id="langToggle" class="flex items-center gap-1.5 border border-[#FFD700]/40 text-[#FFD700] px-3 py-1.5 rounded-full text-[10px] font-medium mono uppercase tracking-wider hover:bg-[#FFD700]/10 transition">
+                    <i data-lucide="languages" class="w-3 h-3"></i>
+                    <span id="langLabel">తె</span>
+                </button>
+                <a href="contact.html" data-t="navCta" class="border-2 border-[#FFD700] px-5 py-2 text-xs uppercase font-medium tracking-widest mono text-[#FFD700] hover:bg-[#FFD700] hover:text-[#4A0E0E] transition duration-300 rounded-lg">Place Order</a>
+            </div>
+            <button class="md:hidden text-[#FFD700]" id="mobileToggle"><i data-lucide="menu" class="w-5 h-5"></i></button>
         </div>
-        <!-- Mobile Nav -->
-        <div class="hidden md:hidden border-t border-stone-700 pb-4 pt-2 space-y-3" id="mobileMenu">
-            <a href="index.html" class="block text-xs uppercase tracking-widest mono font-medium text-white py-1">Home</a>
-            <a href="products.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Collection</a>
-            <a href="about.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Studio</a>
-            <a href="contact.html" class="block text-xs uppercase tracking-widest mono font-medium text-stone-400 py-1">Order</a>
+        <div class="hidden md:hidden border-t border-[#FF8F00]/30 pb-4 pt-2 space-y-3" id="mobileMenu">
+            <a href="index.html" class="block text-xs uppercase tracking-widest mono font-medium text-[#FFD700] py-1" data-t="navHome">Home</a>
+            <a href="products.html" class="block text-xs uppercase tracking-widest mono font-medium text-[#FFD2C4] py-1" data-t="navCollection">Collection</a>
+            <a href="about.html" class="block text-xs uppercase tracking-widest mono font-medium text-[#FFD2C4] py-1" data-t="navStudio">Studio</a>
+            <a href="contact.html" class="block text-xs uppercase tracking-widest mono font-medium text-[#FFD2C4] py-1" data-t="navOrder">Order</a>
         </div>
     </header>
 
     <!-- Hero Section — Text Left + Illustration Right -->
-    <section class="h-screen flex items-center bg-[#fcfbfa] pt-20">
+    <section class="h-screen flex items-center pt-20" style="background: radial-gradient(circle at center, #5C1313 0%, #4A0E0E 100%);">
         <div class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
             <!-- Left: Text -->
             <div class="space-y-7 pt-20 md:pt-0 hero-text-anim">
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-stone-900 leading-[1.1]">
+                <h1 data-t="heroTitle" class="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]" style="font-family:'Yatra One',serif; color:#FFD700; text-shadow: 3px 3px 6px rgba(0,0,0,0.6);">
                     Handcrafted<br>Clay Ganesh<br>Idols
                 </h1>
 
-                <p class="text-stone-500 text-sm md:text-base font-light leading-relaxed max-w-md">
+                <p data-t="heroDesc" class="text-[#FFD2C4] text-sm md:text-base font-light leading-relaxed max-w-md">
                     Pure riverbank soil. No plaster, no chemicals. Sculpted by family artisans in Palavalasa, Sompeta. Dissolves completely in water after pooja.
                 </p>
 
                 <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="products.html" class="bg-stone-900 text-white px-7 py-3.5 text-xs uppercase font-semibold tracking-widest mono hover:bg-stone-800 transition">View Collection</a>
-                    <a href="https://wa.me/919849405815" target="_blank" class="border border-stone-300 text-stone-700 px-7 py-3.5 text-xs uppercase font-semibold tracking-widest mono hover:border-stone-900 transition flex items-center gap-2">
+                    <a href="products.html" class="bg-gradient-to-br from-[#FF8F00] to-[#E65100] text-white px-7 py-3.5 text-xs uppercase font-semibold tracking-widest mono hover:shadow-[0_8px_25px_rgba(255,143,0,0.5)] transition border-2 border-[#FFD700] rounded" data-t="heroBtn1">View Collection</a>
+                    <a href="https://wa.me/919849405815" target="_blank" class="border-2 border-[#FFD700] text-[#FFD700] px-7 py-3.5 text-xs uppercase font-semibold tracking-widest mono hover:bg-[#FFD700]/10 transition flex items-center gap-2 rounded">
                         <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp
                     </a>
                 </div>
 
                 <!-- Mini trust points -->
-                <div class="flex flex-wrap gap-6 pt-6 border-t border-stone-200">
+                <div class="flex flex-wrap gap-6 pt-6 border-t border-[#FFD700]/20">
                     <div class="flex items-center gap-2">
-                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-stone-500"></i>
-                        <span class="text-[11px] text-stone-500 mono uppercase tracking-wider">Pure Clay</span>
+                        <i data-lucide="leaf" class="w-3.5 h-3.5 text-[#FFD700]"></i>
+                        <span class="text-[11px] text-[#FFC107] mono uppercase tracking-wider"data-t="trust1">Pure Clay</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <i data-lucide="droplets" class="w-3.5 h-3.5 text-stone-500"></i>
-                        <span class="text-[11px] text-stone-500 mono uppercase tracking-wider">Water Soluble</span>
+                        <i data-lucide="droplets" class="w-3.5 h-3.5 text-[#FFD700]"></i>
+                        <span class="text-[11px] text-[#FFC107] mono uppercase tracking-wider"data-t="trust2">Water Soluble</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <i data-lucide="hand-heart" class="w-3.5 h-3.5 text-stone-500"></i>
-                        <span class="text-[11px] text-stone-500 mono uppercase tracking-wider">Handmade</span>
+                        <i data-lucide="hand-heart" class="w-3.5 h-3.5 text-[#FFD700]"></i>
+                        <span class="text-[11px] text-[#FFC107] mono uppercase tracking-wider"data-t="trust3">Handmade</span>
                     </div>
                 </div>
             </div>
 
             <!-- Right: Illustration -->
             <div class="hidden md:flex items-center justify-center hero-illus-anim">
-                <img src="img/vinayaka.svg" alt="Vinayaka Illustration" class="w-full max-w-md h-auto">
+                <img src="img/vinayaka.svg" alt="Vinayaka Illustration" class="w-full max-w-md h-auto invert opacity-20">
             </div>
         </div>
     </section>
 
     <!-- Featured Products Preview -->
-    <section class="max-w-7xl mx-auto px-6 py-20 border-b border-stone-200">
+    <section class="max-w-7xl mx-auto px-6 py-20 border-b border-[#FFD700]/20">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4 fade-up">
             <div>
-                <span class="text-xs uppercase tracking-widest text-stone-400 mono block mb-1">Featured</span>
-                <h2 class="text-2xl font-normal tracking-tight text-stone-900 uppercase">Popular This Season</h2>
+                <span class="text-xs uppercase tracking-widest text-[#FFC107] mono block mb-1"data-t="featLabel">Featured</span>
+                <h2 class="text-2xl font-normal tracking-tight text-[#FFD700] uppercase" style="font-family:'Yatra One',serif;"data-t="featTitle">Popular This Season</h2>
             </div>
-            <a href="products.html" class="text-xs uppercase tracking-widest font-semibold border-b border-stone-900 pb-0.5 hover:text-stone-500 transition mono">View Full Collection →</a>
+            <a href="products.html" class="text-xs uppercase tracking-widest font-semibold border-b border-[#FFD700] pb-0.5 text-[#FFD700] hover:text-[#FF8F00] transition mono"data-t="featLink">View Full Collection →</a>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
             <!-- Product 1 -->
-            <div class="border border-stone-200 bg-white group hover:border-stone-400 transition duration-300 fade-up delay-1 hover-lift">
-                <div class="aspect-square bg-stone-100 overflow-hidden border-b border-stone-200 relative">
+            <div class="border-2 border-[#FF8F00] bg-gradient-to-br from-[#541414] to-[#3E0C0C] group hover:border-[#FFD700] transition duration-300 fade-up delay-1 hover-lift">
+                <div class="aspect-square bg-[#3B0A0A] overflow-hidden border-b border-[#FF8F00] relative">
                     <img src="img/1783349826199.png" alt="Natural Clay Vinayaka" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute bottom-3 left-3 bg-stone-900 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-01</div>
+                    <div class="absolute bottom-3 left-3 bg-[#FFD700] text-[#4A0E0E] text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-01</div>
                 </div>
                 <div class="p-6 space-y-3">
                     <div class="flex justify-between items-baseline">
-                        <h4 class="font-medium text-sm text-stone-900 uppercase tracking-tight">Natural Clay Vinayaka</h4>
+                        <h4 class="font-medium text-sm text-[#FFFDF9] uppercase tracking-tight"data-t="prod1Title">Natural Clay Vinayaka</h4>
                     </div>
-                    <p class="text-xs text-stone-500 leading-relaxed font-light">Pure unpainted riverbank soil form. Classic sitting posture, 9 inches.</p>
-                    <div class="text-[10px] text-stone-400 uppercase tracking-widest mono pt-2 border-t border-stone-100">Size: 9 inches / Natural Finish</div>
+                    <p class="text-xs text-[#FFD2C4] leading-relaxed font-light"data-t="prod1Desc">Pure unpainted riverbank soil form. Classic sitting posture, 9 inches.</p>
+                    <div class="text-[10px] text-[#FFC107] uppercase tracking-widest mono pt-2 border-t border-[#FFD700]/20"data-t="prod1Spec">Size: 9 inches / Natural Finish</div>
                 </div>
             </div>
 
             <!-- Product 2 -->
-            <div class="border border-stone-200 bg-white group hover:border-stone-400 transition duration-300 fade-up delay-2 hover-lift">
-                <div class="aspect-square bg-stone-100 overflow-hidden border-b border-stone-200 relative">
+            <div class="border-2 border-[#FF8F00] bg-gradient-to-br from-[#541414] to-[#3E0C0C] group hover:border-[#FFD700] transition duration-300 fade-up delay-2 hover-lift">
+                <div class="aspect-square bg-[#3B0A0A] overflow-hidden border-b border-[#FF8F00] relative">
                     <img src="img/1783349841112.png" alt="Premium Painted Ganesh" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute bottom-3 left-3 bg-stone-900 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-04</div>
-                    <div class="absolute top-3 right-3 bg-emerald-800 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">Best Seller</div>
+                    <div class="absolute bottom-3 left-3 bg-[#FFD700] text-[#4A0E0E] text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-04</div>
+                    <div class="absolute top-3 right-3 bg-[#FFC107] text-[#4A0E0E] text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono" data-t="prod2Badge">Best Seller</div>
                 </div>
                 <div class="p-6 space-y-3">
                     <div class="flex justify-between items-baseline">
-                        <h4 class="font-medium text-sm text-stone-900 uppercase tracking-tight">Premium Painted Ganesh</h4>
+                        <h4 class="font-medium text-sm text-[#FFFDF9] uppercase tracking-tight"data-t="prod2Title">Premium Painted Ganesh</h4>
                     </div>
-                    <p class="text-xs text-stone-500 leading-relaxed font-light">Detailed hand-painted with turmeric and natural color washes. 18 inches.</p>
-                    <div class="text-[10px] text-stone-400 uppercase tracking-widest mono pt-2 border-t border-stone-100">Size: 18 inches / Botanical Paint</div>
+                    <p class="text-xs text-[#FFD2C4] leading-relaxed font-light"data-t="prod2Desc">Detailed hand-painted with turmeric and natural color washes. 18 inches.</p>
+                    <div class="text-[10px] text-[#FFC107] uppercase tracking-widest mono pt-2 border-t border-[#FFD700]/20"data-t="prod2Spec">Size: 18 inches / Botanical Paint</div>
                 </div>
             </div>
 
             <!-- Product 3 -->
-            <div class="border border-stone-200 bg-white group hover:border-stone-400 transition duration-300 fade-up delay-3 hover-lift">
-                <div class="aspect-square bg-stone-100 overflow-hidden border-b border-stone-200 relative">
+            <div class="border-2 border-[#FF8F00] bg-gradient-to-br from-[#541414] to-[#3E0C0C] group hover:border-[#FFD700] transition duration-300 fade-up delay-3 hover-lift">
+                <div class="aspect-square bg-[#3B0A0A] overflow-hidden border-b border-[#FF8F00] relative">
                     <img src="img/1783349854788.png" alt="Grand Celebration Idol" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute bottom-3 left-3 bg-stone-900 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-06</div>
-                    <div class="absolute top-3 right-3 bg-stone-700 text-white text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">Premium</div>
+                    <div class="absolute bottom-3 left-3 bg-[#FFD700] text-[#4A0E0E] text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono">VN-06</div>
+                    <div class="absolute top-3 right-3 bg-white text-[#4A0E0E] text-[9px] font-medium tracking-widest uppercase px-2 py-0.5 mono" data-t="prod3Badge">Premium</div>
                 </div>
                 <div class="p-6 space-y-3">
                     <div class="flex justify-between items-baseline">
-                        <h4 class="font-medium text-sm text-stone-900 uppercase tracking-tight">Grand Celebration Idol</h4>
+                        <h4 class="font-medium text-sm text-[#FFFDF9] uppercase tracking-tight"data-t="prod3Title">Grand Celebration Idol</h4>
                     </div>
-                    <p class="text-xs text-stone-500 leading-relaxed font-light">Large 3-foot idol for society mandapams. Fully painted, detailed ornaments.</p>
-                    <div class="text-[10px] text-stone-400 uppercase tracking-widest mono pt-2 border-t border-stone-100">Size: 36 inches / Full Decor</div>
+                    <p class="text-xs text-[#FFD2C4] leading-relaxed font-light"data-t="prod3Desc">Large 3-foot idol for society mandapams. Fully painted, detailed ornaments.</p>
+                    <div class="text-[10px] text-[#FFC107] uppercase tracking-widest mono pt-2 border-t border-[#FFD700]/20"data-t="prod3Spec">Size: 36 inches / Full Decor</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Process Steps -->
-    <section class="max-w-7xl mx-auto px-6 py-20 border-b border-stone-200">
+    <section class="max-w-7xl mx-auto px-6 py-20 border-b border-[#FFD700]/20" style="background-color: #3D0A0A; border-top: 2px solid #FFD700; border-bottom: 2px solid #FFD700;">
         <div class="mb-12 fade-up">
-            <span class="text-xs uppercase tracking-widest text-stone-400 mono block mb-1">How It Works</span>
-            <h2 class="text-2xl font-normal tracking-tight text-stone-900 uppercase">From Earth to Your Home</h2>
+            <span class="text-xs uppercase tracking-widest text-[#FFC107] mono block mb-1"data-t="procLabel">How It Works</span>
+            <h2 class="text-2xl font-normal tracking-tight text-[#FFD700] uppercase" style="font-family:'Yatra One',serif;"data-t="procTitle">From Earth to Your Home</h2>
         </div>
         <div class="grid md:grid-cols-4 gap-8">
-            <div class="border-t border-stone-300 pt-4 space-y-2 fade-up delay-1">
-                <span class="text-xs uppercase font-semibold tracking-widest text-stone-400 mono block">01</span>
-                <h5 class="text-sm font-semibold uppercase tracking-wider text-stone-900">Choose Your Idol</h5>
-                <p class="text-xs text-stone-500 font-light leading-relaxed">Pick from our collection or request a custom size. Call or WhatsApp to confirm.</p>
+            <div class="border-t-2 border-[#FF8F00] pt-4 space-y-2 fade-up delay-1">
+                <span class="text-xs uppercase font-semibold tracking-widest text-[#FF8F00] mono block">01</span>
+                <h5 class="text-sm font-semibold uppercase tracking-wider text-[#FFD700]"data-t="step1Title">Choose Your Idol</h5>
+                <p class="text-xs text-[#FFD2C4] font-light leading-relaxed"data-t="step1Desc">Pick from our collection or request a custom size. Call or WhatsApp to confirm.</p>
             </div>
-            <div class="border-t border-stone-300 pt-4 space-y-2 fade-up delay-2">
-                <span class="text-xs uppercase font-semibold tracking-widest text-stone-400 mono block">02</span>
-                <h5 class="text-sm font-semibold uppercase tracking-wider text-stone-900">We Sculpt It</h5>
-                <p class="text-xs text-stone-500 font-light leading-relaxed">Hand-shaped from natural clay, sun-dried for days, painted with botanical colors if requested.</p>
+            <div class="border-t-2 border-[#FF8F00] pt-4 space-y-2 fade-up delay-2">
+                <span class="text-xs uppercase font-semibold tracking-widest text-[#FF8F00] mono block">02</span>
+                <h5 class="text-sm font-semibold uppercase tracking-wider text-[#FFD700]"data-t="step2Title">We Sculpt It</h5>
+                <p class="text-xs text-[#FFD2C4] font-light leading-relaxed"data-t="step2Desc">Hand-shaped from natural clay, sun-dried for days, painted with botanical colors if requested.</p>
             </div>
-            <div class="border-t border-stone-300 pt-4 space-y-2 fade-up delay-3">
-                <span class="text-xs uppercase font-semibold tracking-widest text-stone-400 mono block">03</span>
-                <h5 class="text-sm font-semibold uppercase tracking-wider text-stone-900">Clean Immersion</h5>
-                <p class="text-xs text-stone-500 font-light leading-relaxed">After your pooja, immerse in any water body. Dissolves fully — no pollution, no residue.</p>
+            <div class="border-t-2 border-[#FF8F00] pt-4 space-y-2 fade-up delay-3">
+                <span class="text-xs uppercase font-semibold tracking-widest text-[#FF8F00] mono block">03</span>
+                <h5 class="text-sm font-semibold uppercase tracking-wider text-[#FFD700]"data-t="step3Title">Clean Immersion</h5>
+                <p class="text-xs text-[#FFD2C4] font-light leading-relaxed"data-t="step3Desc">After your pooja, immerse in any water body. Dissolves fully — no pollution, no residue.</p>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
     <section class="max-w-7xl mx-auto px-6 py-20">
-        <div class="bg-stone-900 text-white p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 scale-in rounded-3xl">
+        <div class="bg-gradient-to-br from-[#5C1313] to-[#2D0505] text-white p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 scale-in rounded-3xl border-3 border-double border-[#FFD700] shadow-[0_15px_40px_rgba(0,0,0,0.5)]">
             <div class="space-y-3">
-                <h2 class="text-2xl font-normal uppercase tracking-tight">Ready to Book Your Idol?</h2>
-                <p class="text-stone-400 text-sm font-light max-w-md">Ganesh Chaturthi season starts soon. Book early for custom sizes. Pay only after seeing photos of your finished idol.</p>
+                <h2 class="text-2xl font-normal uppercase tracking-tight text-[#FFD700]" style="font-family:'Yatra One',serif;"data-t="ctaTitle">Ready to Book Your Idol?</h2>
+                <p class="text-[#FFD2C4] text-sm font-light max-w-md"data-t="ctaDesc">Ganesh Chaturthi season starts soon. Book early for custom sizes. Pay only after seeing photos of your finished idol.</p>
             </div>
             <div class="flex gap-4 flex-wrap">
-                <a href="contact.html" class="bg-white text-stone-900 px-6 py-3 text-xs uppercase font-semibold tracking-widest mono hover:bg-stone-100 transition">Place Order</a>
-                <a href="https://wa.me/919849405815" target="_blank" class="border border-stone-600 px-6 py-3 text-xs uppercase font-semibold tracking-widest mono text-stone-300 hover:border-white hover:text-white transition">WhatsApp</a>
+                <a href="contact.html" class="bg-gradient-to-br from-[#FF8F00] to-[#E65100] text-white px-6 py-3 text-xs uppercase font-semibold tracking-widest mono hover:shadow-[0_8px_25px_rgba(255,143,0,0.5)] transition border-2 border-[#FFD700] rounded" data-t="ctaBtn">Place Order</a>
+                <a href="https://wa.me/919849405815" target="_blank" class="border-2 border-[#FFD700] px-6 py-3 text-xs uppercase font-semibold tracking-widest mono text-[#FFD700] hover:bg-[#FFD700]/10 transition rounded">WhatsApp</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-stone-900 text-stone-500 py-12 border-t border-stone-800 text-[11px] font-light mono rounded-t-3xl">
+    <footer class="bg-[#1F0303] text-[#FFD2C4] py-12 border-t-[6px] border-[#FFD700] text-[11px] font-light mono rounded-t-3xl">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
             <div class="space-y-2">
-                <p class="text-stone-300 font-semibold tracking-wider uppercase text-sm">Sai Durga Arts</p>
+                <p class="text-[#FFD700] font-semibold tracking-wider uppercase text-sm" style="font-family:'Yatra One',serif;">Sai Durga Arts</p>
                 <p>Palavalasa, Sompeta Mandal</p>
                 <p>Srikakulam District, Andhra Pradesh, India</p>
             </div>
             <div class="space-y-2">
-                <p class="text-stone-300 font-semibold tracking-wider uppercase">Contact</p>
+                <p class="text-[#FFC107] font-semibold tracking-wider uppercase"data-t="footContact">Contact</p>
                 <p>Phone: +91 98494 05815</p>
                 <p>Email: saidurgaarts@gmail.com</p>
-                <p>Hours: Mon–Sat, 8 AM – 8 PM</p>
+                <pdata-t="footTime">Hours: Mon–Sat, 8 AM – 8 PM</p>
             </div>
             <div class="space-y-2">
-                <p class="text-stone-300 font-semibold tracking-wider uppercase">Links</p>
-                <a href="index.html" class="block hover:text-white transition">Home</a>
-                <a href="products.html" class="block hover:text-white transition">Collection</a>
-                <a href="about.html" class="block hover:text-white transition">About Studio</a>
-                <a href="contact.html" class="block hover:text-white transition">Place Order</a>
+                <p class="text-[#FFC107] font-semibold tracking-wider uppercase"data-t="footLinks">Links</p>
+                <a href="index.html" class="block hover:text-[#FFD700] transition" data-t="footHome">Home</a>
+                <a href="products.html" class="block hover:text-[#FFD700] transition" data-t="footCollection">Collection</a>
+                <a href="about.html" class="block hover:text-[#FFD700] transition" data-t="footStudio">About Studio</a>
+                <a href="contact.html" class="block hover:text-[#FFD700] transition" data-t="footOrder">Place Order</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-stone-800 flex flex-col md:flex-row justify-between gap-2">
-            <p>© 2026 Sai Durga Arts. All rights reserved.</p>
-            <p>గణపతి బప్పా మోరియా 🙏</p>
+        <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-[#FFD700]/20 flex flex-col md:flex-row justify-between gap-2">
+            <p class="text-[#FFD2C4]/50"data-t="copyright">© 2026 Sai Durga Arts. All rights reserved.</p>
+            <p class="text-[#FFC107] text-lg" style="font-family:'Yatra One',serif; text-shadow: 0 0 10px rgba(255,193,7,0.4);">గణపతి బప్పా మోరియా 🙏</p>
         </div>
     </footer>
 
     <script>
+        // === LANGUAGE TOGGLE ===
+        let currentLang = localStorage.getItem('sda_lang') || 'en'; // Default English
+
+        const translations = {
+            te: {
+                subtitle: 'చేతితో తయారు చేసిన మట్టి విగ్రహాలు',
+                navHome: 'హోమ్', navCollection: 'సేకరణ', navStudio: 'స్టూడియో', navOrder: 'ఆర్డర్',
+                navCta: 'ఆర్డర్ చేయండి',
+                heroTitle: 'చేతితో తయారు చేసిన<br>మట్టి వినాయక<br>విగ్రహాలు',
+                heroDesc: 'స్వచ్ఛమైన నది ఒడ్డు మట్టి. ప్లాస్టర్ లేదు, రసాయనాలు లేవు. పలవలస, సోంపేటలో కుటుంబ కళాకారులచే తయారు చేయబడింది. పూజ తర్వాత నీటిలో పూర్తిగా కరిగిపోతుంది.',
+                heroBtn1: 'సేకరణ చూడండి', heroBtn2: 'WhatsApp',
+                trust1: 'స్వచ్ఛ మట్టి', trust2: 'నీటిలో కరుగుతుంది', trust3: 'చేతితో తయారు',
+                featLabel: 'ప్రత్యేకం', featTitle: 'ఈ సీజన్ ప్రజాదరణ', featLink: 'పూర్తి సేకరణ చూడండి →',
+                prod1Title: 'సహజ మట్టి వినాయకుడు', prod1Desc: 'స్వచ్ఛమైన రంగు వేయని నది ఒడ్డు మట్టి రూపం. సంప్రదాయ కూర్చున్న భంగిమ, 9 అంగుళాలు.', prod1Spec: 'సైజ్: 9 అంగుళాలు / సహజ ఫినిష్',
+                prod2Title: 'ప్రీమియం పెయింటెడ్ గణేష్', prod2Desc: 'పసుపు మరియు సహజ రంగులతో చేతితో పెయింట్ చేయబడింది. 18 అంగుళాలు.', prod2Spec: 'సైజ్: 18 అంగుళాలు / సహజ పెయింట్', prod2Badge: 'అత్యధిక అమ్మకం',
+                prod3Title: 'గ్రాండ్ సెలబ్రేషన్ విగ్రహం', prod3Desc: 'సొసైటీ మండపాలకు 3 అడుగుల పెద్ద విగ్రహం. పూర్తిగా పెయింట్ చేయబడింది.', prod3Spec: 'సైజ్: 36 అంగుళాలు / పూర్తి అలంకరణ', prod3Badge: 'ప్రీమియం',
+                procLabel: 'ఎలా పని చేస్తుంది', procTitle: 'మట్టి నుండి మీ ఇంటికి',
+                step1Title: 'మీ విగ్రహాన్ని ఎంచుకోండి', step1Desc: 'మా సేకరణ నుండి ఎంచుకోండి లేదా కస్టమ్ సైజ్ అడగండి. ఫోన్ లేదా WhatsApp చేయండి.',
+                step2Title: 'మేము తయారు చేస్తాము', step2Desc: 'సహజ మట్టితో చేతితో రూపొందించబడింది, ఎండలో ఆరబెట్టబడింది, అవసరమైతే సహజ రంగులతో పెయింట్ చేయబడింది.',
+                step3Title: 'నిమజ్జనం', step3Desc: 'మీ పూజ తర్వాత, ఏదైనా నీటిలో నిమజ్జనం చేయండి. పూర్తిగా కరిగిపోతుంది — కాలుష్యం లేదు.',
+                ctaTitle: 'మీ విగ్రహాన్ని బుక్ చేయడానికి సిద్ధంగా ఉన్నారా?',
+                ctaDesc: 'గణేష్ చతుర్థి సీజన్ త్వరలో ప్రారంభమవుతుంది. కస్టమ్ సైజులకు ముందుగా బుక్ చేయండి. మీ పూర్తయిన విగ్రహం ఫోటోలు చూసిన తర్వాతే చెల్లించండి.',
+                ctaBtn: 'ఆర్డర్ చేయండి',
+                footContact: 'సంప్రదించండి', footLinks: 'లింకులు', footTime: 'సమయం: సోమ–శని, ఉ. 8 – రా. 8',
+                footHome: 'హోమ్', footCollection: 'సేకరణ', footStudio: 'స్టూడియో గురించి', footOrder: 'ఆర్డర్ చేయండి',
+                copyright: '© 2026 సాయి దుర్గ ఆర్ట్స్. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి.',
+                toggleBtn: 'EN'
+            },
+            en: {
+                subtitle: 'Handcrafted Clay Ganesh & Durga Idols',
+                navHome: 'Home', navCollection: 'Collection', navStudio: 'Studio', navOrder: 'Order',
+                navCta: 'Place Order',
+                heroTitle: 'Handcrafted<br>Clay Ganesh<br>Idols',
+                heroDesc: 'Pure riverbank soil. No plaster, no chemicals. Sculpted by family artisans in Palavalasa, Sompeta. Dissolves completely in water after pooja.',
+                heroBtn1: 'View Collection', heroBtn2: 'WhatsApp',
+                trust1: 'Pure Clay', trust2: 'Water Soluble', trust3: 'Handmade',
+                featLabel: 'Featured', featTitle: 'Popular This Season', featLink: 'View Full Collection →',
+                prod1Title: 'Natural Clay Vinayaka', prod1Desc: 'Pure unpainted riverbank soil form. Classic sitting posture, 9 inches.', prod1Spec: 'Size: 9 inches / Natural Finish',
+                prod2Title: 'Premium Painted Ganesh', prod2Desc: 'Detailed hand-painted with turmeric and natural color washes. 18 inches.', prod2Spec: 'Size: 18 inches / Botanical Paint', prod2Badge: 'Best Seller',
+                prod3Title: 'Grand Celebration Idol', prod3Desc: 'Large 3-foot idol for society mandapams. Fully painted, detailed ornaments.', prod3Spec: 'Size: 36 inches / Full Decor', prod3Badge: 'Premium',
+                procLabel: 'How It Works', procTitle: 'From Earth to Your Home',
+                step1Title: 'Choose Your Idol', step1Desc: 'Pick from our collection or request a custom size. Call or WhatsApp to confirm.',
+                step2Title: 'We Sculpt It', step2Desc: 'Hand-shaped from natural clay, sun-dried for days, painted with botanical colors if requested.',
+                step3Title: 'Clean Immersion', step3Desc: 'After your pooja, immerse in any water body. Dissolves fully — no pollution, no residue.',
+                ctaTitle: 'Ready to Book Your Idol?',
+                ctaDesc: 'Ganesh Chaturthi season starts soon. Book early for custom sizes. Pay only after seeing photos of your finished idol.',
+                ctaBtn: 'Place Order',
+                footContact: 'Contact', footLinks: 'Links', footTime: 'Hours: Mon–Sat, 8 AM – 8 PM',
+                footHome: 'Home', footCollection: 'Collection', footStudio: 'About Studio', footOrder: 'Place Order',
+                copyright: '© 2026 Sai Durga Arts. All rights reserved.',
+                toggleBtn: 'తె'
+            }
+        };
+
+        function switchLang() {
+            currentLang = currentLang === 'te' ? 'en' : 'te';
+            localStorage.setItem('sda_lang', currentLang);
+            const t = translations[currentLang];
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (t[key]) el.innerHTML = t[key];
+            });
+            
+            // Update toggle button label
+            document.getElementById('langLabel').textContent = currentLang === 'te' ? 'EN' : 'తె';
+        }
+
+        document.getElementById('langToggle').addEventListener('click', switchLang);
         // Mobile menu
         document.getElementById('mobileToggle').addEventListener('click', () => {
             document.getElementById('mobileMenu').classList.toggle('hidden');
@@ -324,6 +406,16 @@
 
         // Lucide icons
         lucide.createIcons();
+
+        // Apply saved language on load
+        if (currentLang === 'te') {
+            const t = translations['te'];
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const key = el.getAttribute('data-t');
+                if (t[key]) el.innerHTML = t[key];
+            });
+            document.getElementById('langLabel').textContent = 'EN';
+        }
     </script>
 </body>
 </html>
